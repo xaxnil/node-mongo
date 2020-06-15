@@ -2,11 +2,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const Promotion = require('../models/promotion');
 const authenticate = require('../authenticate');
-​
+
 const promotionRouter = express.Router();
-​
+
 promotionRouter.use(bodyParser.json());
-​
+
 promotionRouter.route('/')
 .get((req, res, next) => {
     Promotion.find()
@@ -40,7 +40,7 @@ promotionRouter.route('/')
     })
     .catch(err => next(err));
 });
-​
+
 promotionRouter.route('/:promotionId')
 .get((req, res, next) => {
     Promotion.findById(req.params.promotionId)
@@ -75,5 +75,5 @@ promotionRouter.route('/:promotionId')
     })
     .catch(err => next(err));
 });
-​
+
 module.exports = promotionRouter;

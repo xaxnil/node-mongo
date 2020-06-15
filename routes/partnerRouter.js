@@ -2,11 +2,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const Partner = require('../models/partner');
 const authenticate = require('../authenticate');
-​
+
 const partnerRouter = express.Router();
-​
+
 partnerRouter.use(bodyParser.json());
-​
+
 partnerRouter.route('/')
 .get((req, res, next) => {
     Partner.find()
@@ -40,7 +40,6 @@ partnerRouter.route('/')
     })
     .catch(err => next(err));
 });
-​
 partnerRouter.route('/:partnerId')
 .get((req, res, next) => {
     Partner.findById(req.params.partnerId)
@@ -75,5 +74,5 @@ partnerRouter.route('/:partnerId')
     })
     .catch(err => next(err));
 });
-​
+
 module.exports = partnerRouter;

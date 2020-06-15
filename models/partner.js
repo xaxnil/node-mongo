@@ -5,8 +5,7 @@ const partnerSchema = new Schema(
     {
         name: {
             type: String,
-            required: true,
-            unique: true
+            required: true
         },
         image: {
             type: String,
@@ -18,11 +17,10 @@ const partnerSchema = new Schema(
         },
         description: {
             type: String,
-            required: true,
-            unique: true
+            required: true
         }
-
-    }, {
+    },
+    {
         timestamps: true
     }
 );
